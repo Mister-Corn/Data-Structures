@@ -42,17 +42,16 @@ class LinkedList:
     
     return old_head.get_value() if hasattr(old_head, 'get_value') else old_head
 
-  def contains(self, value, node=False):
-    if node == False:
-      node = self.head
+  def contains(self, value, node="start"):
+    node = self.head if node == "start" else node
 
-    if node != None:
-      if value == node.get_value():
-        return True
-      else:
-        return self.contains(value, node.get_next())
-    else:
+    if not node:
       return False
+
+    if value == node.get_value():
+      return True
+    else:
+      return self.contains(value, node.get_next())
 
   def get_max(self):
     maximum = None

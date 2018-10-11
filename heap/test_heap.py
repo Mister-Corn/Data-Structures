@@ -39,6 +39,7 @@ class HeapTests(unittest.TestCase):
     self.heap.insert(2)
     self.heap.insert(5)
 
+    self.assertEqual(self.heap.get_max(), 10)
     descending_order = []
 
     while self.heap.get_size() > 0:
